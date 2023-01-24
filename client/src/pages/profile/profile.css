@@ -1,0 +1,16 @@
+.p-4 {
+    background-color: #D9F0FF;
+}
+
+#menu {
+    color: #CF4D6F;
+}
+
+#menu:hover {
+    color: #D9F0FF;
+    background-color: #CF4D6F;
+}
+
+.mobile-nav {
+    background-color: #D9F0FF;
+}

@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer'
-import Profile from './pages/Profile';
-import SignUpForm from './pages/SignUp';
-import LoginForm from './pages/LoginForm';
+import Profile from './pages/profile/Profile';
+import SignUpForm from './pages/signup/SignUp';
+import LoginForm from './pages/login/LoginForm';
 
 
 // Import Pages

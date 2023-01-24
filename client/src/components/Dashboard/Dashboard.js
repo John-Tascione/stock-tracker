@@ -4,6 +4,7 @@ import Auth from '../../utils/auth';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { MY_REVIEWS, ME } from '../../utils/queries';
+import './Dashboard.css'
 
 
 const Dashboard = () => {
@@ -55,28 +56,6 @@ const Dashboard = () => {
         </div>
       </section>
       <br />
-      <section className="info-tiles">
-        <div className="tile has-text-centered">
-          <div className="tile is-parent">
-            <article className="tile is-child box">
-              <p className="title">Review Count:</p>
-              <p className="subtitle">{reviewData?.length}</p>
-            </article>
-          </div>
-          <div className="tile is-parent">
-            <article className="tile is-child box">
-              <p className="title">My Parties:</p>
-              <p className="subtitle">Coming Soon!</p>
-            </article>
-          </div>
-          <div className="tile is-parent">
-            <article className="tile is-child box">
-              <p className="title">Friends:</p>
-              <p className="subtitle">{meFriends}</p>
-            </article>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
