@@ -1,0 +1,31 @@
+/* custom.scss */ 
+// Include any default variable overrides here
+    $primary:       rgb(125, 65, 174);
+    $secondary:     rgb(69, 43, 98);
+    $success:       rgb(33, 138, 99);
+    $info:          rgb(95, 190, 190);
+    $warning:       rgb(215, 184, 89);
+    $danger-dark:   rgb(106, 28, 82);
+    $danger:        rgb(170, 59, 59);
+    $danger-light:  rgb(216, 139, 111);
+    $light:         #EAEAEA;
+    $dark:          #8E793E;
+
+// Override class variables
+    $box-shadow: 0 0.1em 0.25em 0em rgba(10, 10, 10, 0.398);
+    $card-shadow: 0 0.1em 0.25em 0em rgba(10, 10, 10, 0.398);
+    $unify-font: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    $table-striped-row-even-background-color: $light;
+
+// Custom CSS
+span {
+    font-family: $unify-font;
+}
+
+option :hover {
+    background-color: $light;
+    color: $dark;
+}
+
+/* import the Bulma sass files */
+@import "../../../node_modules/bulma/bulma.sass"

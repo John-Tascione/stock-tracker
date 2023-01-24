@@ -1,0 +1,164 @@
+.navbar {
+    display: flex;
+    background: #A3D5FF;
+    height: 15.1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    width: 80vw;
+}
+
+.navbar-logo {
+    color: #CF4D6F;
+    justify-self: start;
+    cursor: pointer;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    font-family: 'Abril Fatface'
+}
+
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 60vw;
+    justify-content: end;
+    margin-right: 2rem;
+}
+
+.nav-item {
+    height: 80px;
+}
+
+/* color of the links when they are on bigger screens/when you arent hovering over it */
+.nav-links {
+    color: #CF4D6F;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    height: 100%;
+    /* font-family: 'Barlow', sans-serif; */
+}
+
+.nav-links:hover {
+    border-bottom: 4px solid #CF4D6F;
+    transition: all 0.2s ease-out;
+}
+
+/* when menu is not clicked */
+.fa-bars {
+    color: #CF4D6F;
+}
+
+.nav-links-mobile {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+}
+
+@media screen and (max-width: 960px) {
+    .NavbarItems {
+    position: relative;
+    }
+
+    .nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 85vh;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    }
+
+    /* when the navbar shows up on smaller screens */
+    .nav-menu.active {
+    background: #EAEAEA;
+    top: 15vh;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+    }
+
+    .nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+    }
+
+    /* what the links look like when you hover over them on regular screens*/
+    .nav-links:hover {
+    background-color: #EAEAEA;
+    color: #8E793E;
+    border-radius: 2;
+    }
+
+    .navbar-logo {
+    position: absolute;
+    top: 0.9vh;
+    left: -5vw;
+    transform: translate(25%, 50%);
+    }
+
+    .menu-icon {
+    display: block;
+    position: absolute;
+    top: 1.2vh;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    }
+
+    /* when menu is clicked */
+    .fa-times {
+    color: #8E793E;
+    font-size: 2rem;
+    }
+
+    .nav-links-mobile {
+    display: block;
+    text-align: center;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 80%;
+    text-decoration: none;
+    font-size: 1.5rem;
+    background-color: transparent;
+    /* button colors and outlines */
+    color: #8E793E;
+    padding: 14px 20px;
+    border: 1px solid #8E793E;
+    transition: all 0.3s ease-out;
+    }
+
+    /* color of the hover and when color the links turn when they are hovered over on smaller screens */
+    .nav-links-mobile:hover {
+    background: #8E793E;
+    color: #EAEAEA;
+    transition: 250ms;
+    }
+}

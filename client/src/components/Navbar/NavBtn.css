@@ -1,0 +1,54 @@
+:root {
+    --info: #209cee;
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn--info {
+    background-color: var(--info);
+    color: #fff;
+    border: 1px solid var(--info);
+    font-family: 'Nunito', sans-serif;
+}
+
+.btn--outline {
+    background-color: transparent;
+    color: #209cee;
+    padding: 8px 20px;
+    border: 1px solid var(--info);
+    transition: all 0.3s ease-out;
+    font-family: 'Nunito', sans-serif;
+}
+
+.btn--outline-login {
+    background-color: transparent;
+    color: #fff;
+    padding: 8px 20px;
+    border: 1px solid var(--info);
+    transition: all 0.3s ease-out;
+    font-family: 'Nunito', sans-serif;
+}
+
+.btn--medium {
+    padding: 8px 20px;
+    font-size: 18px;
+}
+
+.btn--large {
+    padding: 12px 26px;
+    font-size: 20px;
+}
+
+.btn--large:hover,
+.btn--medium:hover {
+    transition: all 0.3s ease-out;
+    background: #fff;
+    color: #242424;
+    /* transition: 250ms; */
+}
