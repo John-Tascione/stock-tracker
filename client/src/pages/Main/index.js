@@ -8,12 +8,6 @@ import Auth from '../../utils/auth';
 import backround from '../../assets/imgs/stockChart.jpg'
 
 
-  // const handleButtonClick = (event) => {
-  //   event.preventdefault();
-
-  // }
-
-
 const Main = () => {
 return (
     <div className='main-container' style= {{ 
@@ -56,7 +50,7 @@ return (
           buttonStyle='btn--info' 
           buttonSize='btn--large'
           >
-          Profile Dashboardjohn
+          Profile Dashboard
         </Button>
       </Link>
         }
