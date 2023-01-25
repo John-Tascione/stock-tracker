@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Dashboard from '../../components/Dashboard/Dashboard';
+import StockSearch from '../../components/StockSearch/stockSearch';
 import Auth from '../../utils/auth';
 import { useNavigate } from 'react-router-dom';
 import './profile.css'
@@ -22,6 +23,8 @@ const Profile = () => {
   const renderComponent = () => {
     if (currentPage === 'MyActivity') {
       return <Dashboard />
+    } else if (currentPage ==='SearchStocks') {
+      return <StockSearch />
     } else {
       return <Dashboard />
     }
@@ -40,7 +43,7 @@ const Profile = () => {
                 <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('MyActivity')}>My Activity</a>
               </li>
               <li>
-                <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('MyReviews')}>My Reviews</a>
+                <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('SearchStocks')}>Search Stocks</a>
               </li>
               <li>
                 <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange("Friends")}>Friends</a>
