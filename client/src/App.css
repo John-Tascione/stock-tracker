@@ -5,33 +5,13 @@
   font-family: 'PT Sans', sans-serif;
 }
 
-.Movie-Search,
 .Profile,
-.Reviews,
-.Friends,
-.Watch-party,
 .Logout {
   display: flex;
   height: 90vh;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-}
-
-.Movie-Search {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
-.Profile {
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
 }
 
 .Reviews {
@@ -50,14 +30,6 @@
   font-size: 100px;
 }
 
-.Watch-party-invites {
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
 .Logout {
   background-position: center;
   background-size: cover;
@@ -68,6 +40,5 @@
 
 .scrollable {
   max-height: 50vh;
-  /* border-radius: 2.5px; */
   overflow-y: scroll;
 }

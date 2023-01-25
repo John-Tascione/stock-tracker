@@ -5,6 +5,7 @@ import { useQuery } from '@apollo/client';
 import { ME } from '../../utils/queries';
 import './stockSearch.css';
 import axios from 'axios';
+import { formatDate } from '../../utils/helpers';
 
 
 const StockSearch = () => {
@@ -55,41 +56,51 @@ const StockSearch = () => {
     <>
       <section className="hero is-roundeds card is-dark is-small">
         <div className="hero-body">
-          <div className="container is-flex is-flex-direction-row is-justify-content-space-between">
-            <div className="container is-flex is-flex-direction-row">
+          <div className="container is-flex is-flex-direction-row">
+            <div>
               <h1 id="greeting" className="title">
                 Search a stock by ticker symbol:
               </h1>
+            </div>
+            <div>
               <form id="search-form" onSubmit={handleFormSubmit}>
                 <input
                   name="stockTicker"
                   value={stockTicker}
                   onChange={handleFormUpdate}
-                  className="input is-dark"
-                  id="srch-title"
+                  className="input search-item"
+                  id="srch-input"
                   type="text"
                   placeholder="Stock Ticker"
                   autoComplete="off"
                 ></input>
-                <button onClick={handleFormSubmit}> Search</button>
+                <button
+                  onClick={handleFormSubmit}
+                  className="search-item"
+                  id="searchBtn"
+                >
+                  
+                  Search
+                </button>
               </form>
             </div>
           </div>
-        {stockData ? (
-        <div>
-          <h2 id='data-header'>Data as of {stockData.from}</h2>
-            <ul>
-              <li>Open: ${stockData.open}</li>
-              <li>High: ${stockData.high}</li>
-              <li>Low: ${stockData.low}</li>
-              <li>Close: ${stockData.close}</li>
-            </ul>
-            <button
-            onClick={handleSaveStock}> Save {stockData.Symbol} to my Stocks
-            </button>
-        </div>
-        ) : ( <div></div>)
-        }
+          {stockData ? (
+            <div id="data">
+              <h2 id="data-header">Data as of {formatDate(stockData.from)}</h2>
+              <ul>
+                <li>Open: ${stockData.open}</li>
+                <li>High: ${stockData.high}</li>
+                <li>Low: ${stockData.low}</li>
+                <li>Close: ${stockData.close}</li>
+              </ul>
+              <button onClick={handleSaveStock} id="save">
+                Save {stockData.Symbol} to my Stocks
+              </button>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       </section>
       <br />
