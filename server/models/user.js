@@ -18,10 +18,37 @@ const userSchema = new Schema({
     unique: false,
   },
   stocks: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Stock'
+    {ticker: {
+      type: String,
+      required: true,
+      unique: false,
     },
+    date: {
+      type: String,
+      required: true,
+      unique: false,
+    },
+    open: {
+      type: String,
+      required: true,
+      unique: false,
+    },
+    high: {
+      type: String,
+      required: true,
+      unique: false,
+    },
+    low: {
+      type: String,
+      required: true,
+      unique: false,
+    },
+    close: {
+      type: String,
+      required: true,
+      unique: false,
+    },
+  }
   ],
   
 },{

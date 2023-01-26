@@ -39,14 +39,14 @@
 
 #srch-input {
     background-color: #D9F0FF;
-    color: #A3D5FF;
+    color: #CF4D6F;
     border: 2px solid #CF4D6F;
     width: 60%;
     text-align: center;
 }
 
 #srch-input::placeholder{
-    color: #CF4D6F;
+    color: #E59EB1;
 }
 
 .search-item{

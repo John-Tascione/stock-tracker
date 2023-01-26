@@ -1,4 +1,4 @@
-const { User, Stock} = require('../models');
+const { User, args} = require('../models');
 const {AuthenticationError} = require('apollo-server-express')
 const {signToken} = require('../utils/auth');
 
@@ -41,7 +41,18 @@ const resolvers = {
 
       return {token, user};
     },
-  }
+
+    saveStock: async (parent, args, context) => {
+      if(context.user) {
+      let user = await User.findOneAndUpdate(
+        {_id: context.user._id},
+        {$addToSet: {stocks: {ticker: args.ticker, date: args.date, open: args.open, high: args.high, low: args.low, close: args.close}}},
+        {new: true})
+        console.log(user)
+        return user
+    }
+  },
+}
 }
 
 module.exports = resolvers;

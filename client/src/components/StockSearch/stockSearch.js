@@ -1,11 +1,12 @@
 import React, { useState }from 'react'
 import Auth from '../../utils/auth';
 import { useNavigate } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useMutation} from '@apollo/client';
 import { ME } from '../../utils/queries';
 import './stockSearch.css';
 import axios from 'axios';
 import { formatDate } from '../../utils/helpers';
+import { SAVE_STOCK } from '../../utils/mutations';
 
 
 const StockSearch = () => {
@@ -18,12 +19,15 @@ const StockSearch = () => {
 
   // Pull username and ID from profile
   const { username: user, _id: userId } = Auth.getProfile().data;
-  console.log(Auth.getProfile());
-  console.log(user, userId);
+  // console.log(Auth.getProfile());
+  // console.log(user, userId);
 
   const [stockTicker, setStockTicker] = useState("")
   const [stockData, setStockData] = useState("")
-  
+  const date = new Date();
+  date.setDate(date.getDate()-1)
+  const yesterday =  date.toISOString().split("T")[0]
+  // console.log(`Yesterday: ${yesterday}`)
 
   const handleFormUpdate = (event) => {
   setStockTicker(event.target.value.toUpperCase());
@@ -31,7 +35,7 @@ const StockSearch = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    
+  
     if (!stockTicker) {
       console.log("No ticker found")
       return false
@@ -47,10 +51,32 @@ const StockSearch = () => {
     }
   }
  
-  const handleSaveStock = () => {
-    console.log("save stock")
-  }
-  const stockSearch = `https://api.polygon.io/v1/open-close/${stockTicker}/2023-01-09?adjusted=true&apiKey=I7FExWuvhqmQRUzNi_GN8vCpecCFALIg`
+  const [saveStock, {err}] = useMutation(SAVE_STOCK);
+  const stockSearch = `https://api.polygon.io/v1/open-close/${stockTicker}/${yesterday}?adjusted=true&apiKey=I7FExWuvhqmQRUzNi_GN8vCpecCFALIg`
+  
+  const handleSaveStock = async (event) => {
+    event.preventDefault()
+    const {symbol, from, open, high, low, close} = stockData
+    console.log(symbol, from, open.toString(), high.toString(), low.toString(), close.toString())
+
+    try {
+      const newStock = await saveStock({
+      variables: {
+        ticker: symbol,
+        date: from,
+        open: open.toString(),
+        high: high.toString(),
+        low: low.toString(),
+        close: close.toString(),
+      },
+    });
+    console.log(`Saved: ${newStock}`)
+  } catch (err) {
+        console.error(err)
+      }
+    };
+
+  
 
   return (
     <>
@@ -95,7 +121,7 @@ const StockSearch = () => {
                 <li>Close: ${stockData.close}</li>
               </ul>
               <button onClick={handleSaveStock} id="save">
-                Save {stockData.Symbol} to my Stocks
+                Save {stockData.symbol} to my Stocks
               </button>
             </div>
           ) : (

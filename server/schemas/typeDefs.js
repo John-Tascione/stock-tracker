@@ -17,7 +17,12 @@ const typeDefs = gql`
 
   type Stock {
     _id: ID!
-    ticker: String
+    ticker: String!
+    date: String!
+    open: String!
+    high: String!
+    low: String!
+    close: String!
   }
 
   type Query {
@@ -34,6 +39,14 @@ const typeDefs = gql`
     loginUser(
       email: String!, 
       password: String!): Auth
+
+    saveStock(
+      ticker: String!,
+      date: String!,
+      open: String!,
+      high: String!,
+      low: String!,
+      close: String!): Stock
   }
 `;
 
