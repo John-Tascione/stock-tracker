@@ -27,13 +27,6 @@ const Dashboard = () => {
   const reviewData = myReviews.data?.myReviews || myReviews.data;
   console.log(reviewData?.length);
 
-  // Pull query to get friends list
-    // Convert friends list to friendslist.length to derive the value
-    const meQuery = useQuery(ME);
-    const meData = meQuery.data?.me.friends || meQuery.data;
-    const meFriends = meData?.length;
-    console.log(meFriends);
-
   return (
     <>
       <section className="hero is-roundeds card is-dark is-small">

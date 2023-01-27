@@ -32,3 +32,13 @@ mutation SaveStock($ticker: String!, $date: String!, $open: String!, $high: Stri
   }
 }
 `; 
+
+export const DELETE_STOCK = gql`
+mutation DeleteStock($id: String!) {
+  deleteStock(_id: $id) {
+    stocks {
+      _id
+    }
+  }
+}
+`;

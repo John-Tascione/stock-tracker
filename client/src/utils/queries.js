@@ -51,11 +51,14 @@ query Users($username: String) {
 export const ME = gql`
   query Me {
   me {
-    username
-    email
-    friends {
+    stocks {
+      close
+      date
       _id
-      username
+      high
+      low
+      open
+      ticker
     }
   }
 }

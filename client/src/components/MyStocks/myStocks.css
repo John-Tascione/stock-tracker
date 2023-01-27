@@ -1,0 +1,89 @@
+.hero-body {
+    background-color: #A3D5FF;
+    color: #CF4D6F;
+}
+
+#greeting {
+    color: #CF4D6F;
+}
+
+.myStocks{
+    padding-top: 20px;
+    display: grid;
+    column-gap: 50px;
+    row-gap: 25px;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+}
+
+.stock-card{
+    align-items: center;
+    border: #CF4D6F solid 2px;
+}
+
+.stock-header{
+    color: #A3D5FF;
+    font-size: x-large;
+    justify-content: space-between;
+    display: grid;
+    column-gap: 25px;
+    grid-template-columns: auto 30px;
+    background-color: #CF4D6F;
+    padding: 5px;
+}
+
+.stock-header button{
+    border-radius: 40%;
+    position: relative;
+    width: 75%;
+    height: 75%;
+    left: 25%;
+}
+
+.stock-data{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding-left: 10px;
+}
+.stock-data li{
+    color: #CF4D6F;
+    margin: 5px;
+    background-color: #A3D5FF;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+@media screen and ( 950px < width < 1200px ) {
+    .stock-header{
+        font-size: large;
+    }
+    
+}
+
+
+@media screen and (max-width: 950px ) {
+    .myStocks{
+        grid-template-columns: auto;
+    }
+
+    .stock-header{
+        font-size: large;
+    }
+}
+
+@media screen and (max-width: 768px ) {
+    .myStocks{
+        grid-template-columns: auto auto;
+    }
+    .stock-header{
+        font-size: medium;
+    }
+}
+
+@media screen and (max-width: 670px ) {
+    .myStocks{
+        grid-template-columns: auto;
+    }
+}

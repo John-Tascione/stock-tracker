@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Dashboard from '../../components/Dashboard/Dashboard';
 import StockSearch from '../../components/StockSearch/stockSearch';
+import SavedStocks from '../../components/MyStocks/myStocks';
 import Auth from '../../utils/auth';
 import { useNavigate } from 'react-router-dom';
 import './profile.css'
@@ -25,8 +26,8 @@ const Profile = () => {
       return <Dashboard />
     } else if (currentPage ==='SearchStocks') {
       return <StockSearch />
-    } else {
-      return <Dashboard />
+    } else if(currentPage ==='MyStocks') {
+      return <SavedStocks />
     }
   }
 
@@ -46,7 +47,7 @@ const Profile = () => {
                 <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('SearchStocks')}>Search Stocks</a>
               </li>
               <li>
-                <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange("Friends")}>Friends</a>
+                <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange("MyStocks")}>My Saved Stocks</a>
               </li>
               <li>
                 <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange("WatchParties")}>Watch Parties</a>
@@ -59,9 +60,9 @@ const Profile = () => {
         <div className="is-3 p-3 is-hidden-tablet">
           <nav className="mobile-nav" role="navigation" aria-label="main navigation">
           <div id="mobile-navbar" className="container menu-list is-flex is-justify-content-space-around">
-            <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange("Friends")}>Friends</a>
+            <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange("SearchStocks")}>Search Stocks</a>
             <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('MyActivity')}>Activity</a>
-            <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('MyReviews')}>Reviews</a>
+            <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('MyStocks')}>My Stocks</a>
             <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange("WatchParties")}>Parties</a>
           </div>
           </nav>

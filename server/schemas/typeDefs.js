@@ -46,7 +46,11 @@ const typeDefs = gql`
       open: String!,
       high: String!,
       low: String!,
-      close: String!): Stock
+      close: String!): User
+
+    deleteStock(
+      _id: String!
+    ) : User
   }
 `;
 

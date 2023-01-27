@@ -47,11 +47,24 @@ const resolvers = {
       let user = await User.findOneAndUpdate(
         {_id: context.user._id},
         {$addToSet: {stocks: {ticker: args.ticker, date: args.date, open: args.open, high: args.high, low: args.low, close: args.close}}},
-        {new: true})
-        console.log(user)
+        {new: true}
+        )
+
         return user
     }
   },
+
+  deleteStock: async (parent, args, context) => {
+    if(context.user) {
+    let user = await User.findOneAndUpdate(
+      {_id: context.user._id},
+      {$pull: {stocks: {_id: args._id}}},
+      {new: true}
+      )
+
+      return user
+  }
+},
 }
 }
 
