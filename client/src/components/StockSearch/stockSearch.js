@@ -24,35 +24,47 @@ const StockSearch = () => {
 
   const [stockTicker, setStockTicker] = useState("")
   const [stockData, setStockData] = useState("")
+  const [newDate, setNewDate] = useState("")
   const date = new Date();
   date.setDate(date.getDate()-1)
-  const yesterday =  date.toISOString().split("T")[0]
+  let yesterday =  date.toISOString().split("T")[0]
   // console.log(`Yesterday: ${yesterday}`)
 
   const handleFormUpdate = (event) => {
   setStockTicker(event.target.value.toUpperCase());
 };
 
+const handleDateUpdate = (event) => {
+  setNewDate(event.target.value);
+};
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-  
+    
     if (!stockTicker) {
       console.log("No ticker found")
       return false
     }
 
+    if(newDate && yesterday !== newDate) {
+      yesterday = newDate;
+      console.log(`yesterday: ${yesterday}`)
+    }
+
+    let stockSearch = `https://api.polygon.io/v1/open-close/${stockTicker}/${yesterday}?adjusted=true&apiKey=I7FExWuvhqmQRUzNi_GN8vCpecCFALIg`
+    
     try {
-      console.log(`Searching for ${stockTicker}`)
+      console.log(`Getting ${stockSearch}`)
       const response = await axios.get(stockSearch);
-      console.log(response.data)
+      // console.log(response.data)
       setStockData(response.data)
     } catch (err) {
+      alert(`No data found for ${stockTicker} on ${yesterday}. Please try another date.`)
       console.error(err)
     }
   }
  
   const [saveStock, {err}] = useMutation(SAVE_STOCK);
-  const stockSearch = `https://api.polygon.io/v1/open-close/${stockTicker}/${yesterday}?adjusted=true&apiKey=I7FExWuvhqmQRUzNi_GN8vCpecCFALIg`
+  
   
   const handleSaveStock = async (event) => {
     event.preventDefault()
@@ -98,6 +110,17 @@ const StockSearch = () => {
                   id="srch-input"
                   type="text"
                   placeholder="Stock Ticker"
+                  autoComplete="off"
+                ></input>
+                 <input
+                  name="date"
+                  value={newDate}
+                  onChange={handleDateUpdate}
+                  className="input search-item"
+                  id="srch-input"
+                  type="text"
+                  placeholder={yesterday}
+                  defaultValue={yesterday}
                   autoComplete="off"
                 ></input>
                 <button
