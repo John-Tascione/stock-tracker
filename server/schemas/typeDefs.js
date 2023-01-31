@@ -40,6 +40,10 @@ const typeDefs = gql`
       email: String!, 
       password: String!): Auth
 
+    updateEmail(
+      email: String!
+    ): User
+
     saveStock(
       ticker: String!,
       date: String!,

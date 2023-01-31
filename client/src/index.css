@@ -15,10 +15,6 @@ code {
     monospace;
 }
 
-.has-border-bottom {
-  border-bottom: 4px, solid, red;
-}
-
 .is-roundeds {
   border-radius: 5px;
 }
@@ -35,24 +31,11 @@ code {
   z-index: 9;
 }
 
-.movie-poster {
-  max-height: 85%;
-  max-width: 75%;
-}
-
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* background-color: #3e8ed0; */
+  background-color: #D9F0FF;
   z-index: -2;
 }
-
-@media(max-width: 767px) { /* <== You can change this break point as per your  needs */
-  .reverse-columns-mobile {
-    flex-direction: column-reverse;
-    display: flex;
-  }
-}
-
 

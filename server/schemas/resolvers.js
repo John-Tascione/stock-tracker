@@ -18,7 +18,7 @@ const resolvers = {
   },
   
   Mutation: { 
-//  User sign in mutations
+//  User mutations
     createUser: async (parent, {username, email, password}) => {
       const user  = await User.create({username, email, password});
       const token = signToken(user)
@@ -42,6 +42,16 @@ const resolvers = {
       return {token, user};
     },
 
+    updateEmail: async (parent, args, context) => {
+      let user = await User.findOneAndUpdate(
+        {_id: context.user._id},
+        {email: args.email},
+        {new: true}
+        )
+
+        return user
+    },
+    // Stock Mutations
     saveStock: async (parent, args, context) => {
       if(context.user) {
       let user = await User.findOneAndUpdate(
@@ -54,17 +64,17 @@ const resolvers = {
     }
   },
 
-  deleteStock: async (parent, args, context) => {
-    if(context.user) {
-    let user = await User.findOneAndUpdate(
-      {_id: context.user._id},
-      {$pull: {stocks: {_id: args._id}}},
-      {new: true}
-      )
+    deleteStock: async (parent, args, context) => {
+      if(context.user) {
+      let user = await User.findOneAndUpdate(
+        {_id: context.user._id},
+        {$pull: {stocks: {_id: args._id}}},
+        {new: true}
+        )
 
-      return user
-  }
-},
+        return user
+    }
+  },
 }
 }
 

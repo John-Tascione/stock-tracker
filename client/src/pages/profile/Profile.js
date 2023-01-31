@@ -15,14 +15,14 @@ const Profile = () => {
       };
 
   // useState to set the correct dashboard component
-  const [currentPage, setCurrentPage] = useState('MyActivity')
+  const [currentPage, setCurrentPage] = useState('SearchStocks')
   
   const handlePageChange = (page) => {
     setCurrentPage(page);
   }
 
   const renderComponent = () => {
-    if (currentPage === 'MyActivity') {
+    if (currentPage === 'MyProfile') {
       return <Dashboard />
     } else if (currentPage ==='SearchStocks') {
       return <StockSearch />
@@ -31,18 +31,12 @@ const Profile = () => {
     }
   }
 
-
   return (
     <>
       <div className="columns p-4 is-justify-content-space-around is-flex-direction-column-mobile">
         <div className="is-3 p-3 is-hidden-mobile">
-          <aside className="menu">
-            {/* <p className="menu-label">Profile</p> */}
             <ul className="menu-list">
               {/* eslint-disable */}
-              <li>
-                <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('MyActivity')}>My Activity</a>
-              </li>
               <li>
                 <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('SearchStocks')}>Search Stocks</a>
               </li>
@@ -50,24 +44,22 @@ const Profile = () => {
                 <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange("MyStocks")}>My Saved Stocks</a>
               </li>
               <li>
-                <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange("WatchParties")}>Watch Parties</a>
+                <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('MyProfile')}>My Profile</a>
               </li>
               {/* eslint-enable */}
             </ul>
-          </aside>
         </div>
         {/* Use a navbar in mobile view */}
         <div className="is-3 p-3 is-hidden-tablet">
           <nav className="mobile-nav" role="navigation" aria-label="main navigation">
           <div id="mobile-navbar" className="container menu-list is-flex is-justify-content-space-around">
             <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange("SearchStocks")}>Search Stocks</a>
-            <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('MyActivity')}>Activity</a>
             <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('MyStocks')}>My Stocks</a>
-            <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange("WatchParties")}>Parties</a>
+            <a className='has-text-weight-bold' id="menu" onClick={() => handlePageChange('MyProfile')}>Profile</a>
           </div>
           </nav>
         </div>
-        <div className="column is-9">
+        <div className="column is-9 ">
           {renderComponent()}
         </div>
       </div>

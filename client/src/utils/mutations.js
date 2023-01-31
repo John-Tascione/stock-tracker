@@ -25,6 +25,16 @@ mutation LoginUser($email: String!, $password: String!) {
 }
 `; 
 
+export const UPDATE_EMAIL = gql`
+mutation UpdateEmail($email: String!) {
+  updateEmail(email: $email) {
+    _id
+    email
+  }
+}
+`; 
+
+
 export const SAVE_STOCK = gql`
 mutation SaveStock($ticker: String!, $date: String!, $open: String!, $high: String!, $low: String!, $close: String!) {
   saveStock(ticker: $ticker, date: $date, open: $open, high: $high, low: $low, close: $close) {

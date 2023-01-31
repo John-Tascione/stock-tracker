@@ -27,9 +27,9 @@ app.get('/', (req, res) => {
 });
 
 // By using the wildcard character, any enpoint aside from the / endpoint should load the React app from the same place.
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// });
 
 
 // Create a new instance of an Apollo server with the GraphQL schema

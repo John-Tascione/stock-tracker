@@ -58,17 +58,8 @@ function Navbar() {
           {Auth.loggedIn() ? (
             <ul className={isActive ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
-                <Link
-                  to="/movie-search"
-                  className="nav-links"
-                  onClick={closeMobileMenu}
-                >
-                  Search
-                </Link>
-
-                {/* When any link is clicked it removes the navbar*/}
+                              {/* When any link is clicked it removes the navbar*/}
               </li>
-
               <li className="nav-item">
                 {/* link to profile page */}
                 <Link
