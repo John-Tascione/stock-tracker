@@ -1,5 +1,6 @@
+
 #submit{
-    background-color: #D9F0FF ;
+    background-color: #a3d5ff ;
 }
 
 h1, .label{
@@ -20,6 +21,7 @@ h1, .label{
 .form{
     border: #CF4D6F solid 2px !important;
 }
+
 .hero-body{
-    padding-bottom: 100px ;
+    background-color: #D9F0FF;
 }
