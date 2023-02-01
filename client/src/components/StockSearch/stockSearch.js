@@ -100,7 +100,7 @@ const handleDateUpdate = (event) => {
                 Search a stock by ticker symbol:
               </h1>
             </div>
-            <div>
+            <div className='search-container'>
               <form id="search-form" onSubmit={handleFormSubmit}>
                 <input
                   name="stockTicker"

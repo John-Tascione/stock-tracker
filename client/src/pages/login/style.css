@@ -1,0 +1,25 @@
+#submit{
+    background-color: #D9F0FF ;
+}
+
+h1, .label{
+    color:#CF4D6F
+}
+
+.submit{
+    background-color: #CF4D6F;
+    transition: .4s;
+}
+
+.submit:hover {
+    background-color: #D9F0FF;
+    border: #CF4D6F solid 2px;
+    color:#CF4D6F !important;
+}
+
+.form{
+    border: #CF4D6F solid 2px !important;
+}
+.hero-body{
+    padding-bottom: 100px ;
+}

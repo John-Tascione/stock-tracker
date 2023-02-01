@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth' 
+import  "./style.css"
 
 // Call in e-mail helper
 import { validateEmail } from '../../utils/helpers';
@@ -81,7 +82,7 @@ const SignUpForm = () => {
           <div className="container">
             <div className="columns is-centered">
               <div className="column is-6">
-                <form className="box has-background-light" id="submit">
+                <form className="box form" id="submit">
                   { showAlert &&
                   <div className='container has-background-danger is-roundeds new-line'>
                     <p className='px-3 py-1 has-text-white has-text-centered is-size-7'>
@@ -89,7 +90,7 @@ const SignUpForm = () => {
                     </p>
                   </div>
                   } 
-                  <h1 className="py-2 has-text-dark has-text-weight-semibold">Sign Up Here:</h1>
+                  <h1 className="py-2 has-text-weight-semibold">Sign Up Here:</h1>
                   <div className="field">
                     <label className="label">
                       Email
@@ -169,7 +170,7 @@ const SignUpForm = () => {
                     
                     <button 
                       typeof='submit'
-                      className="button is-dark has-text-white is-fullwidth"
+                      className="button has-text-white is-fullwidth submit"
                       onClick={handleFormSubmit}
                     >
                       Create Account
@@ -177,7 +178,7 @@ const SignUpForm = () => {
                   </div>
                   <div className="has-text-centered">
                     <p className="is-size-7"> Already have an account? 
-                      <Link to="/login" className="has-text-dark has-text-weight-semibold">
+                      <Link to="/login" className="label has-text-weight-semibold">
                         {` Login!`}
                       </Link>
                     </p>

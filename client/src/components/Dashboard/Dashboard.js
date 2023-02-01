@@ -9,11 +9,10 @@ import { UPDATE_EMAIL } from '../../utils/mutations';
 
 const Dashboard = () => {
   // Get out of here if you aren't logged in!
-  // const navigate = useNavigate()
-  // // console.log("Logged in? ", Auth.loggedIn())
-  //   if (!Auth.loggedIn()) {
-  //     navigate("/login");
-  //   };
+  const navigate = useNavigate()
+    if (!Auth.loggedIn()) {
+      navigate("/login");
+    };
 
 
   const {loading, error, data} = useQuery(ME);
@@ -24,7 +23,8 @@ const Dashboard = () => {
     setNewEmail(event.target.value);
   };
 
-  const handleUpdateEmail = async () => {
+  const handleUpdateEmail = async (event) => {
+
     if (newEmail === "") {
       alert("Please provide a new email to update")
       return  false
@@ -45,56 +45,34 @@ const Dashboard = () => {
   const me = data.me
   console.log(me)
 
-  // ----- Run queries for fun user metrics ----- //
-
-
   return (
     <>
       <section className="hero is-roundeds card is-dark is-small">
         <div className="hero-body">
-          <h1 id="greeting" className="title is-flex is-justify-content-center ">
+          <div className='columns is-multiline is-centered'>
+          <h1 id="greeting" className="title column is-half is-offset-one-quarter">
             Hello, {me.username}!
           </h1>
-          <div className="container is-flex is-flex-direction-row is-justify-content-space-around">
-            <div>
-              <h2 className="is-size-4">Welcome to your profile!</h2>
-              <p>Updates to your email and password can be made on the right</p>
+          <div className="container column columns is-full">
+            <div className='column columns is-multiline is-one'>
+              <h2 className="is-size-5 column is-half is-offset-one-quarter">Welcome to your profile!</h2>
+              <p className='column is-full'>Your information and basic metrics can be found on the right</p>
             </div>
-            <div>
+            <div className='columns column is-half is-multiline'>
+            <h2 className="is-size-5 column is-half is-offset-one-quarter">User Info and Metrics</h2>
               <ul className="attributes">
                 <li>
                   <div>Username: {me.username}</div>
                 </li>
-                <form onSubmit={() => handleUpdateEmail()}>
-                  <div>email: {me.email} </div>
-                  <input
-                    name="newEmail"
-                    value={newEmail}
-                    onChange={handleNewEmailChange}
-                    className="input search-item"
-                    id="srch-input"
-                    type="text"
-                    placeholder="Type New Email Here"
-                    autoComplete="off"
-                  ></input>
-                  <button onClick={() => handleUpdateEmail()}>update</button>
-                </form>
-                {/* <form onSubmit={() => handleUpdateEmail()}>
-                  <div>email: {me.email} </div>
-                  <input
-                    name="newEmail"
-                    value={newEmail}
-                    onChange={handleNewEmailChange}
-                    className="input search-item"
-                    id="srch-input"
-                    type="text"
-                    placeholder="Type New Email Here"
-                    autoComplete="off"
-                  ></input>
-                  <button onClick={() => handleUpdateEmail()}>update</button>
-                </form> */}
+                <li>
+                  <div>Email: {me.email}</div>
+                </li>
+                <li>
+                  <div>Saved Stocks: {me.stocks.length}</div>
+                </li>
               </ul>
             </div>
+          </div>
           </div>
         </div>
       </section>

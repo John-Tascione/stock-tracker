@@ -4,6 +4,7 @@ import { LOGIN_USER } from '../../utils/mutations' // Need LOGIN_USER mutation
 import { validateEmail } from '../../utils/helpers';
 import Auth from '../../utils/auth' 
 import { Link } from 'react-router-dom';
+import  "./style.css"
 
 const LoginForm = () => {
   console.log('login');
@@ -62,13 +63,13 @@ const LoginForm = () => {
   }
 
   return (
-    <div>
+    <div className='page'>
       <div className="hero">
         <div className="hero-body">
           <div className="container">
             <div className="columns is-centered">
               <div className="column is-6">
-                <form className="box has-background-light" id="submit">
+                <form className="box form" id="submit">
                 { showAlert &&
                   <div className='container has-background-danger is-roundeds new-line'>
                     <p className='px-3 py-1 has-text-white has-text-centered is-size-7'>
@@ -76,9 +77,9 @@ const LoginForm = () => {
                     </p>
                   </div>
                   } 
-                  <h1 className="py-2 has-text-dark has-text-weight-semibold">Login Here:</h1>
+                  <h1 className="py-2 has-text-weight-semibold">Login Here:</h1>
                   <div className="field">
-                    <label className="label is-dark">
+                    <label className="label">
                       Email
                     </label>
                     <div className="control has-icons-left">
@@ -118,7 +119,7 @@ const LoginForm = () => {
                   <div className="field">
                     <button 
                       typeof='submit'
-                      className="button is-dark has-text-white is-fullwidth"
+                      className="button submit has-text-white is-fullwidth"
                       onClick={handleFormSubmit}
                     >
                       Login
@@ -126,7 +127,7 @@ const LoginForm = () => {
                   </div>
                   <div className="has-text-centered">
                     <p className="is-size-7"> Don't have an account? 
-                      <Link to="/sign-up" className="has-text-dark has-text-weight-semibold">
+                      <Link to="/sign-up" className="label has-text-weight-semibold">
                         {` Sign Up!`}
                       </Link>
                     </p>
