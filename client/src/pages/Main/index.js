@@ -19,42 +19,7 @@ return (
         <h1 className='pop'>
           Stock Track 
         <i className='fas fa-chart-line is-size-1-touch is-hidden-mobile' />
-        </h1>
-        
-        {!Auth.loggedIn()
-        ? 
-        <div className='main-btns pop'>
-          <Link to="/login">          
-            <Button 
-              className='btn' 
-              buttonStyle='btn--info' 
-              buttonSize='btn--large'
-              >
-              LOGIN
-            </Button>
-          </Link>
-          <Link to="/sign-up">
-            <Button 
-              className='btn' 
-              buttonStyle='btn--info' 
-              buttonSize='btn--large'
-            >
-              SIGN UP
-            </Button>
-          </Link>
-        </div>
-        :
-        <Link to="/profile">          
-        <Button 
-          className='btn' 
-          buttonStyle='btn--info' 
-          buttonSize='btn--large'
-          >
-          Profile Dashboard
-        </Button>
-      </Link>
-        }
-        
+        </h1>        
     </div>
 )
 }
