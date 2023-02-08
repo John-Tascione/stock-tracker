@@ -7,6 +7,7 @@ import './stockSearch.css';
 import axios from 'axios';
 import { formatDate } from '../../utils/helpers';
 import { SAVE_STOCK } from '../../utils/mutations';
+import Modal from 'react-modal'
 
 
 const StockSearch = () => {
@@ -25,10 +26,33 @@ const StockSearch = () => {
   const [stockTicker, setStockTicker] = useState("")
   const [stockData, setStockData] = useState("")
   const [newDate, setNewDate] = useState("")
+  const [modalIsOpen, setIsOpen] = useState(false)
+
+  const customStyles = {
+    content: {
+      top: '30%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      backgroundColor: '#CF4D6F',
+      color: 'white',
+      textAlign: 'center',
+      borderRadius: '25px'
+    },
+  }
   const date = new Date();
   date.setDate(date.getDate()-1)
   let yesterday =  date.toISOString().split("T")[0]
   // console.log(`Yesterday: ${yesterday}`)
+
+    const openModal = () => {
+      setIsOpen(true)
+    }
+    const closeModal = () => {
+      setIsOpen(false)
+    }
 
   const handleFormUpdate = (event) => {
   setStockTicker(event.target.value.toUpperCase());
@@ -58,7 +82,7 @@ const handleDateUpdate = (event) => {
       // console.log(response.data)
       setStockData(response.data)
     } catch (err) {
-      alert(`No data found for ${stockTicker} on ${yesterday}. Please try another date.`)
+      openModal()
       console.error(err)
     }
   }
@@ -150,6 +174,15 @@ const handleDateUpdate = (event) => {
           ) : (
             <div></div>
           )}
+            <Modal
+              isOpen={modalIsOpen}
+              onRequestClose={closeModal}
+              contentLabel="Error Message"
+              id='modal'
+              style={customStyles}>
+                <h2>No data found for {stockTicker} on {yesterday}</h2>
+                <p>Please try another date.</p>
+            </Modal>
         </div>
       </section>
       <br />
