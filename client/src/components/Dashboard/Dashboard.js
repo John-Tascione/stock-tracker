@@ -19,26 +19,7 @@ const Dashboard = () => {
   const [newEmail, setNewEmail] = useState("")
   const [updateEmail, {err}] = useMutation(UPDATE_EMAIL)
 
-  const handleNewEmailChange = (event) => {
-    setNewEmail(event.target.value);
-  };
-
-  const handleUpdateEmail = async (event) => {
-
-    if (newEmail === "") {
-      alert("Please provide a new email to update")
-      return  false
-    }
-
-    try {
-      // console.log(`Updating email to ${newEmail}`)
-      await updateEmail({variables: {email: newEmail}})
-      alert(`Email has been updated to ${newEmail}`)
-    } catch (err) {
-      console.error(err)
-    }
-
-  }
+ 
   // console.log(data)
   if(loading) return 'Loading...'
   if (error) return `Error ${error}`
